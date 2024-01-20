@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import {HomeSection, SectionLink, SearchBar} from './widgets'
+import {ArticleBlock, HomeSection, SectionLink, SubBlockLink} from './widgets'
+import {SearchBar} from "./search";
 
 export default function Home() {
   return (
@@ -44,15 +45,17 @@ export default function Home() {
 
       <div className="grid text-center lg:max-w-5xl max-w-screen-2xl w-full mb-0 lg:grid-cols-2 lg:text-left">
         <div className="grid text-center lg:max-w-5xl lg:w-full mb-0 lg:grid-cols-1 lg:text-left">
-          <HomeSection title="Devlogs" desc={"What our experts been working on around the clock"}>
-
-          </HomeSection>
+            <HomeSection title="Devlogs" desc={"What our experts been working on around the clock"} child={<div>
+                <ArticleBlock link={""} title={"Welcome Home"} desc={"Here's your new home! We've migrated to React!"} subtitle={"2024/1/## Likia"}/>
+            </div>}/>
         </div>
         <div className="grid text-center lg:max-w-5xl w-full mb-0 lg:grid-cols-1 lg:text-left">
           <SectionLink title="Code Clicker" link="/" desc="A incremental game inpired by Cookie Clicker">
           </SectionLink>
-            <HomeSection title="Tools" desc="Plenty of useful (or not) tools for free">
-            </HomeSection>
+            <HomeSection title="Tools" desc="Plenty of useful (or not) tools for free" child={<div>
+                    <SubBlockLink link={""} title={"Meme Generator"} desc={"Generate memes from some little settings"}/>
+                </div>}
+            />
         </div>
       </div>
     </main>
