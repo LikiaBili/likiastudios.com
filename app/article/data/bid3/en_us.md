@@ -3,7 +3,7 @@
 
 Woo! The third update to the website is finally dropped! I recently gone prepare for the mid term exams and so now im release a TON of updates, also thank you everyone for supporting me to keep me motivated. Now. Here's the complete devlog and series of updated that dropped
 
-## Code Clicker
+- /title Code Clicker
 - New Buildings: Crawler and Miner
 - Save game! Your game progress can now be saved!
 - bps, bytes Algorithm Adjust
@@ -14,7 +14,7 @@ Woo! The third update to the website is finally dropped! I recently gone prepare
 
 The future plans is adding option for you to work on projects, which pause your bytes production and progress it, when done, gives you permanent boost (or switch to turn it on) on features like auto buy, etc. and yeah there will be upgrades. ALSO!!! The most important feature planned is the feature for you to use like Scratch's Drag and Drop code to script your scripts on your own! Next update planned on Nov 18 if things is normal.
 
-## Site
+- /title Site
 - New font form GoOgle f0nts: Poppins (bro this font is so fking beautiful)
 - Multiple Languages both in devlogs and the main page
 - Indev label for Code Clicker

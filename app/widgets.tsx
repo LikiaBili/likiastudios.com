@@ -8,7 +8,6 @@ export function HomeSection({title, desc, child}: { title: string, desc : string
     return (
         <div
             className="text-left group/block rounded-lg border border-transparent px-5 py-4 mx-3 min-h-fit my-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
-            rel="noopener noreferrer"
         >
             <h2 className={`mb-3 text-2xl font-semibold inline-block`}>
                 {title}
@@ -17,7 +16,7 @@ export function HomeSection({title, desc, child}: { title: string, desc : string
             <h2 className="translate-x-1 mb-3 text-2xl font-semibold inline-block transition-transform group-hover/block:translate-x-5 motion-reduce:transform-none text-gray-400 dark:text-gray-600">/</h2>
             <h2 className="translate-x-1 mb-3 text-2xl font-semibold inline-block transition-transform group-hover/block:translate-x-7 motion-reduce:transform-none text-gray-400 dark:text-gray-600">/</h2>
 
-            <p className="dark:text-gray-400 text-gray-500 text-xs transition-transform group-hover/block:translate-x-1 lg:group-hover/block:translate-x-2 motion-reduce:transform-non">{desc}</p>
+            <p className="dark:text-gray-400 mb-5 text-gray-500 text-xs transition-transform group-hover/block:translate-x-1 lg:group-hover/block:translate-x-2 motion-reduce:transform-non">{desc}</p>
 
             {child}
         </div>
@@ -56,32 +55,6 @@ export function SubBlockLink({link,title,desc}: { link : string ,title: string, 
         </a>
     );
 }
-export function ArticleBlock({link,title,desc,subtitle}: { link : string ,title: string, desc : string,subtitle:string}){
-    return (
-        <a href={link}>
-            <div
-                className="group/link rounded-2xl border p-4 my-2 w-full h-fit transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-600 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
-                rel="noopener noreferrer"
-            >
-                <Image
-                    src={articleIcon}
-                    alt="Article icon"
-                    className="dark:invert inline-block -translate-y-1"
-                    width={30}
-                    height={30}
-                />
-                <h2 className={`mb-3 text-2xl font-semibold inline-block transition lg:group-hover/link:translate-x-2`}>
-                    {title}
-                </h2>
-                <h2 className={`translate-x-2 mb-3 text-sm font-semibold inline-block transition lg:group-hover/link:translate-x-6 dark:text-gray-400 text-gray-600`}>
-                    {subtitle}
-                </h2>
-
-                <p className="text-sm dark:text-gray-400 text-gray-600">{desc}</p>
-            </div>
-        </a>
-    );
-}
 export function ComingSoon(){
     return (<div className="group/soon p-4 bg-gray-900 hover:bg-gray-800 transition-all rounded-xl m-3 border-2 hover:border-gray-700 border-gray-800">
         <h2 className={`mb-3 text-2xl font-semibold inline-block`}>Coming Soon!</h2>
@@ -93,5 +66,10 @@ export function BottomLinks(){
         <div className="w-full">
 
         </div>
+    );
+}
+export function Gap(){
+    return (
+        <div className="h-32 my-30 w-full"/>
     );
 }

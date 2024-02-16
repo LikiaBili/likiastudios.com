@@ -27,7 +27,7 @@ export function SearchBar(){
         e.target.innerHTML = "";
     }
     return (
-        <div className="w-full my-6 grid text-left justify-items-center sticky top-20 max-w-5xl">
+        <div className="w-full my-6 grid text-left justify-items-center sticky top-3 max-w-5xl z-50">
             <div className="w-full h-fit flex">
                 <Image
                     className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert m-3"

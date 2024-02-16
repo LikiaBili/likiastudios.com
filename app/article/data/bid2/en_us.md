@@ -2,7 +2,7 @@
 
 Helo!!! Likia here again, now, this website is filled with more javascript (much cooler) and with a big update of [Code Clicker](codeclicker), providing hovering tooltip and the second building. These are the following changes that was made
 
-## Code Clicker
+- /title Code Clicker
 - The second building
 - Hovering Tooltip API
 - 2 internal update functions
@@ -11,7 +11,9 @@ Helo!!! Likia here again, now, this website is filled with more javascript (much
 - Keyboard now have a new icon
 - Fixed 3 bugs
 
-## Site
+/blank-3
+
+- /title Site
 - Now Live on [LikiaStudios.com](http://likiastudios.com)!
 - Different devlogs now share the same .css file
 - Fixed some compatibility issues on serveral pages
