@@ -16,7 +16,11 @@ export function GetRootByKey(key: string,document : Document) : Root{
     if(key in object){
         return object[key];
     }else{
-        object[key] = createRoot(document.getElementById(key));
+        let element = document.getElementById(key);
+        if(element == null){
+            element = new HTMLElement();
+        }
+        object[key] = createRoot(element);
         return object[key];
     }
 }

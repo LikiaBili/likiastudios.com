@@ -18,6 +18,9 @@ export function ViewSource({pageText} : {pageText:string}){
         <div className="cursor-pointer rounded-md inline-flex bg-neutral-800 border border-neutral-700 text-gray-200 text-s p-1 m-2 font-semibold hover:bg-neutral-700 hover:border-neutral-600 transition-colors" onClick={() => {
             const root = GetRootByKey("devlog-source",document);
             let element = document.getElementById("devlog-source");
+            if(element == null) {
+                element = new HTMLElement();
+            }
             if(element.children.length != 0) {
                 element.removeChild(element.children[0]);
                 return;
