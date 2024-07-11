@@ -1,11 +1,15 @@
 'use client'
 
 import Image from "next/image";
-import searchIcon from "./img/icons/search.svg"
+import searchIcon from "../public/icons/search.svg";
 
 var searchTxt : string = "";
 
-function search(){
+function Search(){
+
+}
+
+function QuickSearch(){
 
 }
 
@@ -19,7 +23,7 @@ export function SearchBar(){
             e.target.parentNode.lastChild.style = "width:unset;";
             e.target.parentNode.lastChild.innerHTML = "✖";
         }
-        var results = search();
+        var results = QuickSearch();
     }
     function clearInput(e : any){
         e.target.parentNode.childNodes[1].value = "";
@@ -27,7 +31,7 @@ export function SearchBar(){
         e.target.innerHTML = "";
     }
     return (
-        <div className="w-full my-6 grid text-left justify-items-center sticky top-3 max-w-5xl z-50">
+        <div className="w-full my-6 grid text-left justify-items-center top-3 max-w-5xl" id={"searchBox"}>
             <div className="w-full h-fit flex">
                 <Image
                     className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert m-3"

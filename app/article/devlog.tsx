@@ -7,7 +7,7 @@ export var devlogDictionary = [
         },
         title:{
             en_us:"damn",
-            zh_cn:"&V*uorjgT78#*h*gc&%&cbn("
+            zh_cn:"&V*uorjgT7"
         },
         desc:{
             en_us:"Watch Likia go insane online for free no credit card needed.",

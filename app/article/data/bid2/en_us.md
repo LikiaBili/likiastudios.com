@@ -1,4 +1,4 @@
-![title](title.png)
+![title](/article/bid2/title.png)
 
 Helo!!! Likia here again, now, this website is filled with more javascript (much cooler) and with a big update of [Code Clicker](codeclicker), providing hovering tooltip and the second building. These are the following changes that was made
 

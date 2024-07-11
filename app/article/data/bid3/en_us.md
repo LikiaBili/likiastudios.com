@@ -1,5 +1,5 @@
 
-![Title](EnglishTitle.png)
+![Title](/article/bid3/EnglishTitle.png)
 
 Woo! The third update to the website is finally dropped! I recently gone prepare for the mid term exams and so now im release a TON of updates, also thank you everyone for supporting me to keep me motivated. Now. Here's the complete devlog and series of updated that dropped
 

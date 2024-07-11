@@ -1,8 +1,8 @@
 'use client'
 
-import {ReactElement} from "react";
+import {MouseEventHandler, ReactElement} from "react";
 import Image from "next/image";
-import articleIcon from "./img/icons/article.svg";
+import articleIcon from "../public/icons/article.svg";
 
 export function HomeSection({title, desc, child}: { title: string, desc : string , child : ReactElement}){
     return (
@@ -61,15 +61,24 @@ export function ComingSoon(){
         <p className="group-hover/soon:h-fit h-0 opacity-0 group-hover/soon:opacity-100 transition-all">This website is currently under heavy development, this may be done in just a few days!</p>
     </div>);
 }
-export function BottomLinks(){
-    return (
-        <div className="w-full">
 
-        </div>
-    );
-}
 export function Gap(){
     return (
         <div className="h-32 my-30 w-full"/>
+    );
+}
+
+export function Button({text,onClick,disabled} : {text : string,onClick : MouseEventHandler<HTMLDivElement>,disabled : boolean}){
+    if(disabled){
+        return (
+            <div className={"h-fit w-fit p-2 pl-3 pr-3 bg-neutral-800 border-neutral-900 hover:border-neutral-700 border rounded-xl font-semibold text-2xl select-none cursor-not-allowed transition-all"} onClick={onClick} rel="noopener noreferrer">
+                {text}
+            </div>
+        );
+    }
+    return (
+        <div className={"h-fit w-fit p-2 pl-3 pr-3 bg-neutral-900 border-neutral-800 hover:border-neutral-600 border rounded-xl font-semibold text-2xl select-none cursor-pointer transition-all"} onClick={onClick} rel="noopener noreferrer">
+            {text}
+        </div>
     );
 }

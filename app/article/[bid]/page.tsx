@@ -3,7 +3,7 @@ import { promises as fs } from 'fs';
 import {findDevlog} from "@/app/article/devlog";
 import {getUserLanguage} from "@/app/clientScripts";
 import Markdown from "markdown-to-jsx";
-import {ListElement, CustomText, UnorderedList} from "@/app/article/widgets";
+import {ListElement, CustomText, UnorderedList, DevlogImage} from "@/app/article/widgets";
 
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
@@ -19,6 +19,7 @@ export default async function Page({params} : {params : {bid : string}}){
                                 className: 'text-3xl font-semibold my-5 w-full mb-4'
                             }
                         },
+                        img: ({ src , alt }) => <DevlogImage alt={alt} src={src}/>,
                         p: ({ children }) => <CustomText>{children}</CustomText>,
                         ul: ({ children }) => <UnorderedList>{children}</UnorderedList>,
                         li: ({ children }) => <ListElement>{children}</ListElement>
@@ -26,9 +27,10 @@ export default async function Page({params} : {params : {bid : string}}){
                 }}>{pageText}</Markdown>
         );
     }
+    //console.log(render());
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="p-4 bg-neutral-800 rounded-2xl border border-neutral-600 w-full text-center">
+            <div className="p-4 bg-neutral-900 rounded-2xl border border-neutral-700 w-full text-center">
                 <h1 className="text-3xl font-semibold my-5 w-full">
                     {devlog["title"][userLanguage]}
                 </h1>
@@ -38,13 +40,13 @@ export default async function Page({params} : {params : {bid : string}}){
                 <p className="text-m font-semibold inline-block text-neutral-400 mx-2 mb-3">
                     {devlog["time"]}
                 </p>
-                <a className="rounded-md bg-neutral-700 border border-neutral-500 text-s p-1 font-semibold my-5 mx-2 mb-3 hover:bg-neutral-600 hover:border-neutral-400 transition-colors" href="../..">
+                <a className="rounded-md bg-neutral-800 border border-neutral-700 text-gray-200 text-s p-1 font-semibold my-5 mx-2 mb-3 hover:bg-neutral-700 hover:border-neutral-600 transition-colors" href="../..">
                     {"Back ->"}
                 </a>
                 <p className="text-m font-semibold text-neutral-300 mx-2">
                     {devlog["desc"][userLanguage]}
                 </p>
-                <div className="text-left bg-gray-800 border-gray-700 border-2 p-3 rounded-xl mt-6">
+                <div className="text-left bg-gray-900 border-gray-800 border-2 p-3 rounded-xl mt-6">
                     {render()}
                 </div>
             </div>

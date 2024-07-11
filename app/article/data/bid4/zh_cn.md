@@ -6,4 +6,4 @@
 
 备备注: Code Clicker更新抢先看!
 
-![Update Leak](ccleak.png)
+![Update Leak](/article/bid4/ccleak.png)

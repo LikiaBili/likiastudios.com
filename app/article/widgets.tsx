@@ -1,33 +1,69 @@
 "use client"
 
 import {getRecentDevlog,devlogDictionary} from "./devlog"
-import {getUserLanguage} from "@/app/clientScripts";
+import {GetRootByKey, getUserLanguage} from "@/app/clientScripts";
 import Image from "next/image";
-import articleIcon from "@/app/img/icons/article.svg";
-import React, {ReactNode} from "react";
+import articleIcon from "@/public/icons/article.svg";
+import React, {ReactNode, useState} from "react";
 import {renderToString} from "react-dom/server";
 import Markdown from "markdown-to-jsx";
 import {createRoot} from "react-dom/client";
-import {Gap} from "@/app/widgets";
+import {Button, Gap} from "@/app/widgets";
+import {className} from "postcss-selector-parser";
+import {element, object, string} from "prop-types";
+import {log} from "util";
 
 export function Devlog({section}:{section:number}){
+
     let logsdata = getRecentDevlog({section:section,count:4});
     console.log(logsdata);
 
     let buffer = [];
-    for(let i = 0;i < logsdata.length;i++){
-        buffer.push(
-            <ArticleBlock title={logsdata[i]["title"][getUserLanguage()]}
-                          subtitle={logsdata[i]["time"]+" "+logsdata[i]["author"]}
-                          desc={logsdata[i]["desc"][getUserLanguage()]}
-                          link={"article/"+logsdata[i]["id"]}/>
+    for(let i = 0;i < 4;i++){
+        if(i < logsdata.length){
+            buffer.push(
+                <ArticleBlock title={logsdata[i]["title"][getUserLanguage()]}
+                              subtitle={logsdata[i]["time"]+" "+logsdata[i]["author"]}
+                              desc={logsdata[i]["desc"][getUserLanguage()]}
+                              link={"article/"+logsdata[i]["id"]}/>
+            );
+        }else {
+            buffer.push(<Gap></Gap>);
+        }
+    }
+
+    let switcherBuffer = [];
+
+    if(section <= 0){
+        switcherBuffer.push(
+            <div className={"col-start-1"}><Button text={"<-"} onClick={() => {}} disabled={true}></Button></div>
+        );
+    }else{
+        switcherBuffer.push(
+            <div className={"col-start-1"}><Button text={"<-"} onClick={() => {
+                const nextElement = <Devlog section={section-1}/>;
+                GetRootByKey("devlogs_tab_root",document).render(nextElement);
+            }} disabled={false}></Button></div>
         );
     }
+
     if(devlogDictionary.length > (section+1)*4) {
-        buffer.push(
-            <ExpandMore section={section+1}/>
+        switcherBuffer.push(
+            <div className={"col-start-9"}><Button text={"->"} onClick={() => {
+                const nextElement = <Devlog section={section+1}/>;
+                GetRootByKey("devlogs_tab_root",document).render(nextElement);
+            }} disabled={false}></Button></div>
+        );
+    }else{
+        switcherBuffer.push(
+            <div className={"col-start-9"}><Button text={"->"} onClick={() => {}} disabled={true}></Button></div>
         );
     }
+    buffer.push(
+        <div className={"w-full h-fit grid grid-cols-9 grid-rows-1 transition-all"} id={"devlogsList"}>
+            {switcherBuffer}
+        </div>
+    );
 
     return (
         buffer
@@ -50,34 +86,14 @@ export function ArticleBlock({link,title,desc,subtitle}: { link : string ,title:
                 <h2 className={`ml-1 text-2xl font-semibold inline-block transition lg:group-hover/link:translate-x-2`}>
                     {title}
                 </h2>
-                <h2 className={`translate-x-2 text-sm font-semibold inline-block transition lg:group-hover/link:translate-x-6 dark:text-gray-400 text-gray-600`}>
+                <br></br>
+                <h2 className={`translate-x-2 -translate-y-1 text-sm font-semibold inline-block transition lg:group-hover/link:translate-x-6 dark:text-gray-400 text-gray-600`}>
                     {subtitle}
                 </h2>
 
                 <p className="text-sm dark:text-gray-400 text-gray-600">{desc}</p>
             </div>
         </a>
-    );
-}
-
-export function ExpandMore({section}:{section:number}){
-    function clickCircles(){
-        try {
-            document.getElementById("devlogExpand").parentElement.innerHTML += renderToString(<Devlog
-                section={section}/>);
-            document.getElementById("devlogExpand").remove();
-        }catch{}
-    }
-    return (
-        <div id="devlogExpand" className="text-center group/expand w-full h-min rounded-2xl border p-2 my-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-600 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
-             onClick={clickCircles}>
-            <h2 className="ml-1 text-2xl font-semibold inline-block text-gray-100 transition-all group-hover/expand:text-white group-hover/expand:-translate-x-3">
-                {"Expand"}
-            </h2>
-            <h2 className="ml-1 text-xl font-semibold inline-block text-gray-500 transition-all group-hover/expand:-translate-x-1">{">"}</h2>
-            <h2 className="ml-1 text-xl font-semibold inline-block text-gray-500 transition-all group-hover/expand:translate-x-1">{">"}</h2>
-            <h2 className="ml-1 text-xl font-semibold inline-block text-gray-500 transition-all group-hover/expand:translate-x-3">{">"}</h2>
-        </div>
     );
 }
 
@@ -96,7 +112,7 @@ export const ListElement: React.FC<CustomComponentProps> = ({ children }) => {
         );
     }
     return (
-        <div className={"group/listjsx mb-2 bg-gray-800 p-1 w-fit hover:translate-x-2 hover:bg-gray-900 transition-transform border-2 rounded-md border-gray-600"}>
+        <div className={"group/listjsx mb-2 bg-gray-800 p-1 w-fit hover:translate-x-2 hover:bg-gray-900 transition-transform border-2 rounded-md border-gray-700"}>
             <span className={"mr-3 text-gray-400 ml-1 group-hover/listjsx:mr-5 group-hover/listjsx:text-gray-500 transition-all select-none font-semibold text-l"}>|</span>
             <span className="mr-2">{children}</span>
         </div>
@@ -110,17 +126,40 @@ export const UnorderedList: React.FC<CustomComponentProps> = ({ children }) => {
     );
 }
 
-export const CustomText: React.FC<CustomComponentProps> = ({ children }) => {
-    if(children != null && children.toString().startsWith("/")){
-        if(children.toString().startsWith("/custom ")){
-            return (<div dangerouslySetInnerHTML={{__html: children.toString().replace("/custom ","")}}/>);
+export function parseCustomString(str : string){
+    if(str != null && str.toString().startsWith("/")){
+        if(str.toString().startsWith("/custom ")){
+            return (<div dangerouslySetInnerHTML={{__html: str.toString().replace("/custom ","")}}/>);
         }
-        if(children.toString().startsWith("/blank")){
-            if(children.toString().startsWith("/blank-")){
-                return (<div className={"h-"+children.toString().replace("/blank-","")+" w-full"}/>);
+        if(str.toString().startsWith("/blank")){
+            if(str.toString().startsWith("/blank-")){
+                return (<div className={"h-"+str.toString().replace("/blank-","")+" w-full"}/>);
             }
             return (<div className={"h-3 w-full"}/>);
         }
     }
-    return (<p className={"mb-2"}>{children}</p>);
+    return (<p className={"mb-2"}>{str}</p>);
+}
+
+export const CustomText: React.FC<CustomComponentProps> = ({ children }) => {
+    let childArray = React.Children.toArray(children);
+    let resultArray : React.JSX.Element[] = [];
+    childArray.forEach((child, index) => {
+        console.log(child);
+        if(child instanceof string){
+            resultArray.push(parseCustomString(child.toString()));
+        }else if(React.isValidElement(child)){
+            resultArray.push(child);
+        }
+    });
+    return resultArray;
+}
+export function DevlogImage({src,alt}:{src:string,alt:string}){
+    return (
+        <div className="flex justify-center items-center relative h-64">
+            <Image src={src} alt={alt} fill={true} className={"object-contain"} onClick={() => {
+
+            }}/>
+        </div>
+    );
 }

@@ -1,4 +1,4 @@
-![title](title.png)
+![title](/article/bid2/title.png)
 
 雷猴啊！俺是Likia,最近这个网站被我充满了Javascript(更酷了)还有一个关于[Code Clicker](codeclicker)的大更新！比方说支持鼠标悬停的API还有第二个建筑以及一些生活质量更新，接下来是具体内容
 

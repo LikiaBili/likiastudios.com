@@ -8,4 +8,4 @@ P.S. The rounds you lost includes in the medals calculation and do not have a ne
 
 P.S.S. here's a leak on the Code Clicker Update
 
-![Update Leak](ccleak.png)
+![Update Leak](/article/bid4/ccleak.png)
