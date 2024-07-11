@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import {PageBottom, PageHeader, SideBar, SideMenu} from './globalLayout'
+import {PageBottom, PageHeader, SideMenu} from './globalLayout'
 import './globals.css'
 import {Gap} from "@/app/widgets";
 import Head from "next/head";

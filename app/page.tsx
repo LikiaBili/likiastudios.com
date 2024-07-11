@@ -43,7 +43,7 @@ export default function Home() {
           <SectionLink title="Code Clicker" link="https://likiastudios.com/codeclicker" desc="A incremental game inpired by Cookie Clicker">
           </SectionLink>
             <HomeSection title="Tools" desc="Plenty of useful (or not) tools for free" child={<div>
-                    <SubBlockLink link={"/memegen"} title={"Meme Generator"} desc={"Generate memes from some little settings"}/>
+                    <SubBlockLink link={"https://likiastudios.com/splatools"} title={"Splatools"} desc={"Splatoon 3 Related calculators online"}/>
                 </div>}
             />
         </div>

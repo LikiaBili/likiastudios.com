@@ -3,7 +3,9 @@ import { promises as fs } from 'fs';
 import {findDevlog} from "@/app/article/devlog";
 import {getUserLanguage} from "@/app/clientScripts";
 import Markdown from "markdown-to-jsx";
-import {ListElement, CustomText, UnorderedList, DevlogImage} from "@/app/article/widgets";
+import {ListElement, CustomText, UnorderedList, DevlogImage} from "@/app/article/[bid]/pmdrender";
+import Image from "next/image";
+import {Back, ViewSource} from "@/app/article/[bid]/widgets";
 
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
@@ -40,13 +42,15 @@ export default async function Page({params} : {params : {bid : string}}){
                 <p className="text-m font-semibold inline-block text-neutral-400 mx-2 mb-3">
                     {devlog["time"]}
                 </p>
-                <a className="rounded-md bg-neutral-800 border border-neutral-700 text-gray-200 text-s p-1 font-semibold my-5 mx-2 mb-3 hover:bg-neutral-700 hover:border-neutral-600 transition-colors" href="../..">
-                    {"Back ->"}
-                </a>
                 <p className="text-m font-semibold text-neutral-300 mx-2">
                     {devlog["desc"][userLanguage]}
                 </p>
+                <div className={""}>
+                    <Back/>
+                    <ViewSource pageText={pageText}/>
+                </div>
                 <div className="text-left bg-gray-900 border-gray-800 border-2 p-3 rounded-xl mt-6">
+                    <div id={"devlog-source"}></div>
                     {render()}
                 </div>
             </div>

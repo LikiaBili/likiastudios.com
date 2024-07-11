@@ -4,6 +4,7 @@ import Image from "next/image";
 import exp from "constants";
 import {SearchBar} from "@/app/search";
 import Link from "next/link";
+import {Gap} from "@/app/widgets";
 
 const headerColor = `70,70,70`;
 var menuOpened = false;
@@ -45,7 +46,13 @@ export function PageHeader({includeSearch} : {includeSearch : boolean}){
 export function SideMenu(){
     return (
         <div className={fetchMenuStyle()} id={"page-menu"}>
-            <MenuTab href={"/"} text={"Home*"} icon={"/undefined.svg"}/>
+            <MenuTab href={"/"} text={"Home"} icon={"/icons/home.svg"}/>
+            <Gap/>
+            <Gap/>
+            <Gap/>
+            <Gap/>
+            <Gap/>
+            <MenuTab href={"https://likiastudios.com"} text={"Back to Stable"} icon={"/icons/undo.svg"}/>
         </div>
     );
 }
@@ -83,6 +90,7 @@ export function PageBottom(){
                     <Image src={"/StudiosSite.png"} alt={"LikiaStudios"} width={437.5} height={75} className={"row-span-1 ml-auto mr-auto mt-5"}/>
                     <p className={"row-span-2 font-bold text-right mt-3 text-xl"}>{"© LikiaStudios 2024"}</p>
                     <p className={"row-span-2 font-semibold text-right mt-1"}>{"Powered by Likia"}</p>
+                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.1.0 Deployment 1"}</p>
                 </div>
                 <div>
                     <p className={"row-span-1 text-2xl font-semibold text-left pl-5"}>{"Our Socials!"}</p>
@@ -92,6 +100,7 @@ export function PageBottom(){
                         <MiniLink text={"LikiaBili"} imgsrc={"/icons/github.svg"} dest={"https://github.com/LikiaBili"}/>
                         <MiniLink text={"LikiaBili"} imgsrc={"/icons/twitch.svg"} dest={"https://twitch.tv/likiabili"}/>
                         <MiniLink text={"Likia"} imgsrc={"/icons/youtube.svg"} dest={"https://www.youtube.com/channel/UC9gcwv4rzPYV2IHYaWwseAw"}/>
+                        <MiniLink text={"Likia IKEA"} imgsrc={"/icons/discord.svg"} dest={"https://discord.com/invite/TawnmF5rkM"}/>
                     </div>
                     <p className={"row-span-1 text-2xl font-semibold text-left pl-5 mt-3"}>{"Friends Links!"}</p>
                     <div className={"grid-cols-3 grid grid-rows-1"}>
