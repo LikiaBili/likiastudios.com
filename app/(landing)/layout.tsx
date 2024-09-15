@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import {PageBottom, PageHeader, SideMenu} from './globalLayout'
-import './globals.css'
+import {MenuButton, PageBottom, PageHeader, SideMenu} from '@/app/globalLayout'
+import '@/app/globals.css'
 import {Gap} from "@/app/widgets";
 import Head from "next/head";
 
@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SideMenu/>
+        <MenuButton/>
         <PageHeader includeSearch={false}/>
         {children}
         <PageBottom/>

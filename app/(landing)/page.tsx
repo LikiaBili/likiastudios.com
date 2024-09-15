@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import {Gap, HomeSection, SectionLink, SubBlockLink} from './widgets'
-import {SearchBar} from "./search";
-import {Devlog} from "@/app/article/widgets";
+import {BannerLabel, Gap, HomeSection, SectionLink, SubBlockLink} from '../widgets'
+import {SearchBar} from "../search";
+import {Devlog} from "@/app/(website)/article/widgets";
 
 export default function Home() {
   return (
@@ -17,6 +17,7 @@ export default function Home() {
           before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]
           m-16
           ">
+          <BannerLabel text={"Beta"} offset={"-bottom-2 -right-2 z-20 shadow-neutral-800 shadow-2xl"}/>
         <Image
           className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70]"
           src="/StudiosSite.png"
@@ -35,15 +36,17 @@ export default function Home() {
 
       <div className="grid text-center lg:max-w-5xl max-w-screen-2xl w-full mb-0 lg:grid-cols-2 lg:text-left">
         <div className="grid text-center lg:max-w-5xl lg:w-full mb-0 lg:grid-cols-1 lg:text-left">
-            <HomeSection title="Devlogs" desc={"What our experts been working on around the clock"} child={<div id={"devlogs_tab_root"}>
-                <Devlog section={0}/>
+            <HomeSection title="Devlogs" desc={"What our experts been working on around the clock"} child={<div>
+                <BannerLabel text={"New"}/>
+                <div id={"devlogs_tab_root"} className={"relative"}>
+                    <Devlog section={0}/>
+                </div>
             </div>}/>
         </div>
         <div className="grid text-center lg:max-w-5xl w-full mb-0 lg:grid-cols-1 lg:text-left">
-          <SectionLink title="Code Clicker" link="https://likiastudios.com/codeclicker" desc="A incremental game inpired by Cookie Clicker">
-          </SectionLink>
+          <SectionLink title="Code Clicker" link="https://likiastudios.com/codeclicker" desc="A incremental game inpired by Cookie Clicker" />
             <HomeSection title="Tools" desc="Plenty of useful (or not) tools for free" child={<div>
-                    <SubBlockLink link={"https://likiastudios.com/splatools"} title={"Splatools"} desc={"Splatoon 3 Related calculators online"}/>
+                    <SubBlockLink link={"/splatools"} title={"Splatools 3!"} desc={"Splatoon 3 Related tools. Now refactored!"} custom={<BannerLabel text={"New"}/>}/>
                 </div>}
             />
         </div>

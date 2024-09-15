@@ -3,11 +3,13 @@
 import {MouseEventHandler, ReactElement} from "react";
 import Image from "next/image";
 import articleIcon from "../public/icons/article.svg";
+import {inspect} from "util";
+import {className} from "postcss-selector-parser";
 
 export function HomeSection({title, desc, child}: { title: string, desc : string , child : ReactElement}){
     return (
         <div
-            className="text-left group/block rounded-lg border border-transparent px-5 py-4 mx-3 min-h-fit my-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
+            className="relative text-left group/block rounded-lg border border-transparent px-5 py-4 mx-3 min-h-fit my-2 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
         >
             <h2 className={`mb-3 text-2xl font-semibold inline-block`}>
                 {title}
@@ -38,13 +40,15 @@ export function SectionLink({link,title,desc}: { link : string ,title: string, d
         </a>
     );
 }
-export function SubBlockLink({link,title,desc}: { link : string ,title: string, desc : string}){
+export function SubBlockLink({link,title,desc,custom}: { link : string ,title: string, desc : string , custom? : ReactElement}){
     return (
         <a href={link}>
         <div
-            className="group/link rounded-2xl border p-4 my-2 w-full h-fit transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-600 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
+            className="relative group/link rounded-2xl border p-4 my-2 w-full h-fit transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-600 hover:dark:bg-neutral-800/30 dark:bg-neutral-900/30 bg-gray-100 border-gray-300 dark:border-neutral-800"
             rel="noopener noreferrer"
         >
+            {custom}
+
             <h2 className={`mb-3 text-2xl font-semibold inline-block`}>
                 {title}
             </h2>
@@ -78,6 +82,17 @@ export function Button({text,onClick,disabled} : {text : string,onClick : MouseE
     }
     return (
         <div className={"h-fit w-fit p-2 pl-3 pr-3 bg-neutral-900 border-neutral-800 hover:border-neutral-600 border rounded-xl font-semibold text-2xl select-none cursor-pointer transition-all"} onClick={onClick} rel="noopener noreferrer">
+            {text}
+        </div>
+    );
+}
+
+export function BannerLabel({text,offset} : {text:string,offset?:string}){
+    if(offset == null){
+        offset = "top-3 right-3";
+    }
+    return(
+        <div className={"absolute bg-neutral-800 border-neutral-700 border-[1px] group-hover:border-neutral-600 pl-2 pr-2 pt-1 pb-1 rounded-xl font-black "+offset}>
             {text}
         </div>
     );
