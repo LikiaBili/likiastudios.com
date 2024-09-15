@@ -37,7 +37,7 @@ export default function Home() {
       <div className="grid text-center lg:max-w-5xl max-w-screen-2xl w-full mb-0 lg:grid-cols-2 lg:text-left">
         <div className="grid text-center lg:max-w-5xl lg:w-full mb-0 lg:grid-cols-1 lg:text-left">
             <HomeSection title="Devlogs" desc={"What our experts been working on around the clock"} child={<div>
-                <BannerLabel text={"New"}/>
+                <BannerLabel text={"Incomplete"}/>
                 <div id={"devlogs_tab_root"} className={"relative"}>
                     <Devlog section={0}/>
                 </div>

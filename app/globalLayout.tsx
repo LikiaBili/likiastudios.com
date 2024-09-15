@@ -121,7 +121,7 @@ export function PageBottom({alwaysShow}:{alwaysShow?:boolean}){
                     <Image src={"/StudiosSite.png"} alt={"LikiaStudios"} width={437.5} height={75} className={"row-span-1 ml-auto mr-auto mt-5"}/>
                     <p className={"row-span-2 font-bold text-right mt-3 text-xl"}>{"© LikiaStudios 2024"}</p>
                     <p className={"row-span-2 font-semibold text-right mt-1"}>{"Powered by Likia"}</p>
-                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.0 Deployment 4"}</p>
+                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.0 Deployment 5"}</p>
                 </div>
                 <div>
                     <p className={"break-keep text-nowrap row-span-1 text-2xl font-semibold text-left lg:pl-5"}>{"Our Socials!"}</p>
