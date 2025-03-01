@@ -6,11 +6,12 @@ import Markdown from "markdown-to-jsx";
 import {ListElement, CustomText, UnorderedList, DevlogImage} from "./pmdrender";
 import Image from "next/image";
 import {Back, ViewSource} from "./widgets";
+import path from "path";
 
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
     let userLanguage : "en_us" | "zh_cn" = "en_us";
-    let pageText = await fs.readFile('/article/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
+    let pageText = await fs.readFile(path.join(process.cwd(), 'article/'+devlog['id']+'/' + devlog["document"][userLanguage]), 'utf8');
     function render(){
         return (
                 <Markdown options={{
