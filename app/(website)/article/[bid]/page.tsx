@@ -10,7 +10,7 @@ import {Back, ViewSource} from "./widgets";
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
     let userLanguage : "en_us" | "zh_cn" = "en_us";
-    let pageText = await fs.readFile(process.cwd() + '/article/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
+    let pageText = await fs.readFile('/article/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
     function render(){
         return (
                 <Markdown options={{
