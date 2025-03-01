@@ -121,17 +121,17 @@ export function PageBottom({alwaysShow}:{alwaysShow?:boolean}){
                     <Image src={"/StudiosSite.png"} alt={"LikiaStudios"} width={437.5} height={75} className={"row-span-1 ml-auto mr-auto mt-5"}/>
                     <p className={"row-span-2 font-bold text-right mt-3 text-xl"}>{"© LikiaStudios 2024"}</p>
                     <p className={"row-span-2 font-semibold text-right mt-1"}>{"Powered by Likia"}</p>
-                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.0 Deployment 5"}</p>
+                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.0 Deployment 6"}</p>
                 </div>
                 <div>
                     <p className={"break-keep text-nowrap row-span-1 text-2xl font-semibold text-left lg:pl-5"}>{"Our Socials!"}</p>
                     <div className={"grid-cols-3 grid grid-rows-1"}>
-                        <MiniLink text={"Likia琳卡"} imgsrc={"/icons/bilibili.svg"} dest={"https://space.bilibili.com/514993873"}/>
-                        <MiniLink text={"Likia"} imgsrc={"/icons/itchio.svg"} dest={"https://likia.itch.io"}/>
-                        <MiniLink text={"LikiaBili"} imgsrc={"/icons/github.svg"} dest={"https://github.com/LikiaBili"}/>
-                        <MiniLink text={"LikiaBili"} imgsrc={"/icons/twitch.svg"} dest={"https://twitch.tv/likiabili"}/>
-                        <MiniLink text={"Likia"} imgsrc={"/icons/youtube.svg"} dest={"https://www.youtube.com/channel/UC9gcwv4rzPYV2IHYaWwseAw"}/>
-                        <MiniLink text={"Likia IKEA"} imgsrc={"/icons/discord.svg"} dest={"https://discord.com/invite/TawnmF5rkM"}/>
+                        <MiniLink text={"Bilibili"} imgsrc={"/icons/bilibili.svg"} dest={"https://space.bilibili.com/514993873"}/>
+                        <MiniLink text={"Itch.io"} imgsrc={"/icons/itchio.svg"} dest={"https://likia.itch.io"}/>
+                        <MiniLink text={"Github"} imgsrc={"/icons/github.svg"} dest={"https://github.com/LikiaBili"}/>
+                        <MiniLink text={"Twitch"} imgsrc={"/icons/twitch.svg"} dest={"https://twitch.tv/likiacaco3"}/>
+                        <MiniLink text={"Youtube"} imgsrc={"/icons/youtube.svg"} dest={"https://www.youtube.com/channel/UC9gcwv4rzPYV2IHYaWwseAw"}/>
+                        <MiniLink text={"Discord"} imgsrc={"/icons/discord.svg"} dest={"https://discord.com/invite/TawnmF5rkM"}/>
                     </div>
                     <p className={"break-keep text-nowrap row-span-1 text-2xl font-semibold text-left lg:pl-5 mt-3"}>{"Other Links"}</p>
                     <div className={"grid-cols-3 grid grid-rows-1"}>
