@@ -46,20 +46,21 @@ export function parseCustomString(str : string){
             return (<div className={"h-3 w-full"}/>);
         }
     }
-    return (<p className={"mb-2"}>{str}</p>);
+    return (<span className={"mb-2"}>{str}</span>);
 }
 
 export const CustomText: React.FC<CustomComponentProps> = ({ children }) => {
     let childArray = React.Children.toArray(children);
     let resultArray : React.JSX.Element[] = [];
     childArray.forEach((child, index) => {
-        //console.log(child);
-        if(child instanceof string){
+        if(child instanceof string || typeof child === "string"){
             resultArray.push(parseCustomString(child.toString()));
         }else if(React.isValidElement(child)){
             resultArray.push(child);
         }
     });
+    resultArray.push(<br></br>);
+    resultArray.push(<br></br>);
     return resultArray;
 }
 export function DevlogImage({src,alt}:{src:string,alt:string}){

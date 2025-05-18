@@ -44,7 +44,7 @@ export function PageHeader({includeSearch} : {includeSearch : boolean}){
     }
     return (
         <div className={"w-full bg-gray-800 h-[95px] fixed top-0 z-[50] bg-opacity-40 backdrop-blur-xl grid-rows-1 grid-cols-5 grid justify-items-center opacity-100"} id={"pageHeader"}>
-            <div className={"ml-auto mr-auto top-3 fixed"}>{searchElement}</div>
+            <div className={"ml-auto mr-auto -top-2 fixed w-96"}>{searchElement}</div>
         </div>
     );
 }
@@ -53,8 +53,8 @@ export function SideMenu(){
     return (
         <div className={fetchMenuStyle()} id={"page-menu"}>
             <MenuTab href={"/"} text={"Home"} icon={"/icons/home.svg"}/>
-            <Gap/>
-            <Gap/>
+            <MenuTab href={"/splatools"} text={"Splatools"} icon={"/icons/plumbing.svg"}/>
+            <MenuTab href={"https://likiastudios.com/codeclicker"} text={"Code Clicker"} icon={"/icons/tactic.svg"}/>
             <Gap/>
             <Gap/>
             <Gap/>
@@ -119,9 +119,9 @@ export function PageBottom({alwaysShow}:{alwaysShow?:boolean}){
                 <div className={"relative"}>
                     <BannerLabel text={"Beta"} offset={"top-0 -right-4"}/>
                     <Image src={"/StudiosSite.png"} alt={"LikiaStudios"} width={437.5} height={75} className={"row-span-1 ml-auto mr-auto mt-5"}/>
-                    <p className={"row-span-2 font-bold text-right mt-3 text-xl"}>{"© LikiaStudios 2024"}</p>
+                    <p className={"row-span-2 font-bold text-right mt-3 text-xl"}>{"© LikiaStudios 2024-2025"}</p>
                     <p className={"row-span-2 font-semibold text-right mt-1"}>{"Powered by Likia"}</p>
-                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.0 Deployment 10"}</p>
+                    <p className={"row-span-2 font-semibold text-right mt-1"}>{"Running site Beta V0.2.1 Deployment 11"}</p>
                 </div>
                 <div>
                     <p className={"break-keep text-nowrap row-span-1 text-2xl font-semibold text-left lg:pl-5"}>{"Our Socials!"}</p>

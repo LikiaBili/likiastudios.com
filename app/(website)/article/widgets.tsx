@@ -16,7 +16,6 @@ import {log} from "util";
 export function Devlog({section}:{section:number}){
 
     let logsdata = getRecentDevlog({section:section,count:4});
-    console.log(logsdata);
 
     let buffer = [];
     for(let i = 0;i < 4;i++){

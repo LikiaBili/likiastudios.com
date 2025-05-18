@@ -6,14 +6,14 @@ export var devlogDictionary = [
             zh_cn:"zh_cn.md"
         },
         title:{
-            en_us:"Welcome Home",
-            zh_cn:"欢迎回家"
+            en_us:"Welcome Back!",
+            zh_cn:"欢迎回来！"
         },
         desc:{
-            en_us:"Good morning.",
-            zh_cn:"天亮了，早上好。"
+            en_us:"Now here's the Devlogs in action!",
+            zh_cn:"开发日志终于迁移好咯！"
         },
-        time:"2024-7-12 undefined",
+        time:"2025-5-18 19:42:58",
         author:"Likia",
         section:"General",
         edited:false

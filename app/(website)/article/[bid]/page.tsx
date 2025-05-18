@@ -11,7 +11,7 @@ import path from "path";
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
     let userLanguage : "en_us" | "zh_cn" = "en_us";
-    let pageText = await fs.readFile(process.cwd()+'/app/(website)/article/data/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
+    let pageText = await fs.readFile(process.cwd()+'/.articles/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
     function render(){
         return (
                 <Markdown options={{
@@ -30,29 +30,30 @@ export default async function Page({params} : {params : {bid : string}}){
                 }}>{pageText}</Markdown>
         );
     }
-    //console.log(render());
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-            <div className="p-4 bg-neutral-900 rounded-2xl border border-neutral-700 w-full text-center">
-                <h1 className="text-3xl font-semibold my-5 w-full">
+        <main className="flex min-h-screen flex-col items-center gap-20 p-24 pt-48">
+            <div className={"w-full text-center"}>
+                <h1 className="text-6xl my-5 w-full font-black">
                     {devlog["title"][userLanguage]}
                 </h1>
-                <p className="text-m font-semibold inline-block text-neutral-400 mx-2 mb-3">
+                <span className="text-m font-bold inline-block text-neutral-400 mx-2 mb-3">
                     {devlog["author"]}
-                </p>
-                <p className="text-m font-semibold inline-block text-neutral-400 mx-2 mb-3">
+                </span>
+                <span className="text-m font-bold inline-block text-neutral-400 mx-2 mb-3">
                     {devlog["time"]}
-                </p>
+                </span>
                 <p className="text-m font-semibold text-neutral-300 mx-2">
                     {devlog["desc"][userLanguage]}
                 </p>
+            </div>
+            <div className="p-4 bg-neutral-900 rounded-2xl border border-neutral-700 w-full text-center">
                 <div className={""}>
                     <Back/>
                     <ViewSource pageText={pageText}/>
                 </div>
-                <div className="text-left bg-gray-900 border-gray-800 border-2 p-3 rounded-xl mt-6">
-                    <div id={"devlog-source"}></div>
-                    {render()}
+                <div className="text-left p-3 rounded-xl mt-6">
+                    <div id={"md-source"}></div>
+                    <div id={"md-rendered"}>{render()}</div>
                 </div>
             </div>
         </main>

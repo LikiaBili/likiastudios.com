@@ -193,6 +193,7 @@ const DrawCard = () => {
           {"开抽！"}
         </button>
       </div>
+      <p className={"font-bold text-neutral-400 m-2 mt-4"}>{"Tool by: Liangchen_"}</p>
     </div>
   );
 };
