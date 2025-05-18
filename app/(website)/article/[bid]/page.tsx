@@ -11,7 +11,7 @@ import path from "path";
 export default async function Page({params} : {params : {bid : string}}){
     let devlog = findDevlog(params.bid);
     let userLanguage : "en_us" | "zh_cn" = "en_us";
-    let pageText = await fs.readFile(process.cwd()+'/_articles/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
+    let pageText = await fs.readFile(process.cwd()+'/articles/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
     function render(){
         return (
                 <Markdown options={{
