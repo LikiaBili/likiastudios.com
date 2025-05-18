@@ -6,8 +6,8 @@ import Markdown from "markdown-to-jsx";
 import {ListElement, CustomText, UnorderedList, DevlogImage} from "./pmdrender";
 import Image from "next/image";
 import {Back, ViewSource} from "./widgets";
-import path from "path";
-import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export default async function Page(props: Params) {
     const params = await props.params;
