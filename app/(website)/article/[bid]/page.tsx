@@ -7,11 +7,13 @@ import {ListElement, CustomText, UnorderedList, DevlogImage} from "./pmdrender";
 import Image from "next/image";
 import {Back, ViewSource} from "./widgets";
 import path from "path";
+import {Params} from "next/dist/shared/lib/router/utils/route-matcher";
 
-export default async function Page({params} : {params : {bid : string}}){
-    let devlog = findDevlog(params.bid);
+export default async function Page(props: Params) {
+    const params = await props.params;
+    let devlog = findDevlog(params.slug);
     let userLanguage : "en_us" | "zh_cn" = "en_us";
-    let pageText = await fs.readFile(process.cwd()+'/article/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
+    let pageText = await fs.readFile(process.cwd()+'/_articles/'+devlog['id']+'/' + devlog["document"][userLanguage], 'utf8');
     function render(){
         return (
                 <Markdown options={{

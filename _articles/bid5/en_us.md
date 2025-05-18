@@ -1,0 +1,1 @@
+damn i reverted my two week uncommitted changes by a git rebase<br>whatever ima cry myself to sleep<br>like i tried everything that i can do but nothing worked<br>goodbye ima go work on some other projects until im also bored on that thing
