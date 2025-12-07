@@ -8,6 +8,7 @@ import Image from "next/image";
 import {Back, ViewSource} from "./widgets";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {Params} from "next/dist/server/request/params";
 
 export default async function Page(props: Params) {
     const params = await props.params;
